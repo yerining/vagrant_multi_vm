@@ -1,12 +1,14 @@
 <?php
-$con=mysqli_connect("example.com","peter","abc123","my_db");
+
+
+$con=mysqli_connect("192.168.3.6","root","rootpass","formresponses");
 // Check connection
 if (mysqli_connect_errno())
 {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$result = mysqli_query($con,"SELECT * FROM Persons");
+$result = mysqli_query($con,"SELECT * FROM response");
 
 echo "<table border='1'>
 <tr>
