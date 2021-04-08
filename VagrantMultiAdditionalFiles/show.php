@@ -1,29 +1,41 @@
 <?php
 
 
-$con=mysqli_connect("192.168.3.6","root","rootpass","formresponses");
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
+$username = 'root';
+$password = 'rootpass';
+$dsn = 'mysql:host=192.168.3.6;dbname=formresponses';
+
+try{
+	$db = new PDO($dsn, $username, $password);
+	$result=FALSE;
+
+    $query = "SELECT * FROM response";
+
+    $stmt = $db->query($query);
+    
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    
+    echo "<table border='1'>
+    <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>email</th>
+    </tr>";
+
+    foreach($rows as $row) {
+        echo "<tr>";
+        echo "<td>".$row['firstname']."</td>";
+        echo "<td>".$row['lastname']."</td>";
+        echo "<td>".$row['email']."</td>";
+        echo "</tr>";
+
+        //printf("{$row['firstname']} {$row['secondname']} {$row['email']}\n");
+    }
+
+} catch(PDOException $ex) {
+	echo $ex->getMessage();
 }
 
-$result = mysqli_query($con,"SELECT * FROM response");
-
-echo "<table border='1'>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>";
-
-while($row = mysqli_fetch_array($result))
-{
-echo "<tr>";
-echo "<td>" . $row['FirstName'] . "</td>";
-echo "<td>" . $row['LastName'] . "</td>";
-echo "</tr>";
-}
 echo "</table>";
-
-mysqli_close($con);
 ?>
