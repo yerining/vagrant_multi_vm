@@ -1,4 +1,9 @@
 # vagrant-multi-apache-mysql
+
+This project is a updated version of https://github.com/rankinjl/vagrant-multi-apache-mysql. 
+
+I just updated Some php codes to show the updated data. 
+
 Use Vagrant and VirtualBox to set up multiple VMs on a private network: one Apache WebExampleBox with a form on a web page and one MySQL DBExampleBox that receives and stores this form data.
 
 Edited by Jessica Rankins on 4/19/2017
