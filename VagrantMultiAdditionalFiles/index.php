@@ -30,5 +30,6 @@
 <input type="submit" value="Submit">
 </form>
 
+<a href="show.php">view the data</a>
 </body>
 </html>
