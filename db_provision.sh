@@ -22,11 +22,20 @@ sudo service mysql restart
 # Create database for form responses (WebExampleBox)
 mysql -uroot -p'rootpass' -e "DROP DATABASE IF EXISTS formresponses; 
 	CREATE DATABASE formresponses; 
+
 	USE formresponses; 
-	CREATE TABLE response (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+
+	CREATE TABLE response1 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+		firstname VARCHAR(20), lastname VARCHAR(20), 
+		email VARCHAR(50), submitdate DATETIME);
+	
+	CREATE TABLE response2 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
 		firstname VARCHAR(20), lastname VARCHAR(20), 
 		email VARCHAR(50), submitdate DATETIME);"
+
 sudo service mysql restart
+
+
 
 echo cd / >> /home/vagrant/.bashrc
 echo "Hello World from DBBox!"
